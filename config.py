@@ -1,6 +1,7 @@
 import os
 import sys
 import yaml
+import datetime
 
 
 SERVICE_ROOT_DIR = os.path.dirname(__file__)
@@ -18,6 +19,10 @@ ISSUE = API.get('issue')
 LOGIN = CONFIG.get('authenticate', {}).get('login')
 PASSWORD = CONFIG.get('authenticate', {}).get('password')
 
-REPO = CONFIG.get('repo', {}).get('name')
-OWNER = CONFIG.get('repo', {}).get('owner')
-BRANCH = CONFIG.get('repo', {}).get('branch', 'master')
+REPO_CONF = CONFIG.get('repo', {})
+REPO = REPO_CONF.get('name')
+OWNER = REPO_CONF.get('owner')
+BRANCH = REPO_CONF.get('branch', 'master')
+MAX_COMMITERS = REPO_CONF.get('max_commiters', 30)
+ISSUE_AGE = datetime.timedelta(days=REPO_CONF.get('issue_age', 14))
+PULL_AGE = datetime.timedelta(days=REPO_CONF.get('pull_age', 30))
