@@ -1,0 +1,30 @@
+api:
+    host: github.com
+    commit:
+        id: sha
+        committer: committer.login
+        date: commit.committer.date
+    pull_request:
+        number: number
+        user: user.login
+        created_at: created_at
+        closed_at: created_at
+        updated_at: created_at
+        branch: head.repo.default_branch
+    issue:
+        number: number
+        user: user.login
+        created_at: created_at
+        closed_at: created_at
+        updated_at: created_at
+
+repo:
+    name: scalding
+    owner: twitter
+    branch: master
+    issue_age: 14
+    pull_age: 30
+
+authenticate:
+    login: <github login>
+    password: <github password>
